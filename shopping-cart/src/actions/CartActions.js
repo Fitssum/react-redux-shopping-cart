@@ -1,10 +1,10 @@
-
 export const addToCart = (item) => {
   console.log(`ACTION: adding ${item} to cart`)
   return {
     type: 'ADD_ITEM',
     item
   }
+}
 
   export const removeFromCart = (item) => {
   console.log(`ACTION: Removing ${item} from cart`)

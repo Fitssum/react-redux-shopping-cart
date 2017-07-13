@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-import './index.css';
+import App from './components/App'
+import './components/App.css'
+import './Index.css'
 
-import App from './App';
-import './App.css';
+import Store from './Store'
 
-import registerServiceWorker from './registerServiceWorker';
+const StoreInstance = Store()
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()//looking for the presence of the function and calling it (including the extension we installed for our browser - devtools)
+ReactDOM.render(
+  <Provider store={StoreInstance}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 )
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();

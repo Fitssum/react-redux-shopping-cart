@@ -24,3 +24,17 @@ const Cart = (props) => {
     </div>
   )
 }
+function mapStoreStateToComponentProps(state, props) {
+  return {
+    cart: state.cart
+  };
+}
+function mapDispatchToComponentProps(dispatch) {
+  return {
+    actions: bindActionCreators(CartActions, dispatch)
+  }
+}
+const wrapperFunction = connect(mapStoreStateToComponentProps, mapDispatchToComponentProps)
+const wrappedComponent = wrapperFunction(Cart)
+
+export default wrappedComponent
